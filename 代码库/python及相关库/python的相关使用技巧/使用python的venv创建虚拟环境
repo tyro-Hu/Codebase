@@ -1,0 +1,11 @@
+1. 在终端界面cd到指定的项目目录中，之后创建的虚拟环境以及安装的相关库都会在这个目录下
+2. 创建虚拟环境：python -m venv 虚拟环境名称（建议为：.venv 因为有的框架会自动识别该名称的环境目录）
+3. 激活虚拟环境： windows：.venv\Scripts\activate   macOS/Linux：source .venv/bin/activate
+4. 验证虚拟环境：python --version   pip --version
+5. 从文件中安装依赖：pip install -r requirements.txt
+6. 退出虚拟环境：deactivate
+7. 删除虚拟环境：直接删除虚拟环境目录即可
+8. 其他常用操作：
+   - 列出已安装的依赖：pip list
+   - 卸载依赖：pip uninstall 库名称
+   - 导出依赖：pip freeze > requirements.txt
