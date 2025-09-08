@@ -1,0 +1,13 @@
+无论是ChatPromptTemplate提示模板、ChatDeepSeek聊天模型、还是PydanticOutputParser输出解析器，他们都有invoke方法
+
+因为他们实现了langchain的Runnable接口，所有都具有invoke方法
+
+对于提示模板来说，invoke接收输入变量值的字典，返回prompt value提示值
+对于聊天模型来说，invoke接收prompt value提示值或者是消息列表，返回模型生成的输出/聊天信息
+对于输出解析器来说，invoke接收模型生成的输出/聊天信息，返回解析后的数据
+
+可以看到，提示模板的invoke输出是聊天模型invoke的输入，聊天模型invoke的输出是输出解析器invoke的输入
+所以可以将他们串起来，形成一个链式调用，从而实现一个完整的聊天流程
+langchain中的管道符|将他们串起来，形成链式调用
+例如：prompt.invoke(variables) | model().invoke(prompt_value) | output_parser().invoke(model_output)
+简化：(prompt | model | output_parser).invoke({prompt中的动态参数值})
