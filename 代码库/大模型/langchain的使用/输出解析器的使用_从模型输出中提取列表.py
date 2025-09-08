@@ -39,3 +39,4 @@ response = model.invoke(final_prompt)
 # 使用输出解析器的invoke方法解析输出文本
 result = output_parser.invoke(response)
 print(result)
+
